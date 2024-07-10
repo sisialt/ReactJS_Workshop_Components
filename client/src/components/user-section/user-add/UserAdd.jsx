@@ -1,5 +1,6 @@
 export default function UserAdd({
-    onClose
+    onClose,
+    onSave,
 }) {
     return (
         <>
@@ -18,7 +19,7 @@ export default function UserAdd({
                                 </svg>
                             </button>
                         </header>
-                        <form>
+                        <form onSubmit={onSave}>
                             <div className="form-row">
                                 <div className="form-group">
                                     <label htmlFor="firstName">First name</label>
