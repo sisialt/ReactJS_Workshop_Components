@@ -5,6 +5,7 @@ export default function UserList({
     users,
     onDelete,
     onChangeSelectedUser,
+    onDetails,
 }) {
     return (
         <>
@@ -74,6 +75,7 @@ export default function UserList({
                                     user={user}
                                     onDelete={onDelete}
                                     onChangeSelectedUser={onChangeSelectedUser}
+                                    onDetails={onDetails}
                                 />
                         )}
                         
