@@ -3,12 +3,15 @@ import Pagination from '../pagination/Pagination';
 import UserList from './user-list/UserList';
 import UserAdd from './user-add/UserAdd';
 import { useEffect, useState } from 'react';
+import UserDelete from './user-delete/UserDelete';
 
 const baseUrl = 'http://localhost:3030/jsonstore';
 
 export default function UserSection() {
     const [addUser, setAddUser] = useState(false);
     const [users, setUsers] = useState([]);
+    const [deleteUser, setDeleteUser] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
         async function getUsers() {
@@ -26,6 +29,18 @@ export default function UserSection() {
 
     const closeAddUser = () => {
         setAddUser(false);
+    }
+
+    const showDeleteUser = () => {
+        setDeleteUser(true);
+    }
+
+    const closeDeleteUser = () => {
+        setDeleteUser(false);
+    }
+
+    const changeSelectedUser = (u) => {
+        setSelectedUser(u)
     }
 
     const saveAddUser = async (e) => {
@@ -52,13 +67,27 @@ export default function UserSection() {
         setAddUser(false);
     }
 
+    const deleteUserHandler = async (user) => {
+        const response = await fetch(`${baseUrl}/users/${user._id}`, {
+            method: 'DELETE'
+        })
+
+        setUsers(oldUsers => oldUsers.filter(u => u._id !== user._id))
+
+        closeDeleteUser();
+    } 
+
     return (
         <>
             <section className="card users-container">
             
                 <Search />
 
-                <UserList users={users}/>
+                <UserList 
+                    users={users}
+                    onDelete={showDeleteUser}
+                    onChangeSelectedUser={changeSelectedUser}
+                />
 
                 {addUser && (
                     <UserAdd 
@@ -66,6 +95,13 @@ export default function UserSection() {
                         onSave={saveAddUser}
                     />
                 )}
+
+                {deleteUser && 
+                    <UserDelete 
+                        onClose={closeDeleteUser}
+                        onDelete={() => deleteUserHandler(selectedUser)}
+                    />
+                }
 
                 <button className="btn-add btn" onClick={showAddUser}>Add new user</button>
 
