@@ -5,6 +5,7 @@ export default function UserListItem({
     onDelete,
     onChangeSelectedUser,
     onDetails,
+    onEdit,
 }) {
     return (
         <>
@@ -19,7 +20,7 @@ export default function UserListItem({
                 <td>{formatDate(user.createdAt)}</td>
 
                 <td className="actions">
-                    <button className="btn edit-btn" title="Edit" onClick={() => onChangeSelectedUser(user)}>
+                    <button className="btn edit-btn" title="Edit" onClick={() => {onEdit(), onChangeSelectedUser(user)}}>
                         <svg aria-hidden="true" focusable="false" data-prefix="fas"
                             data-icon="pen-to-square" className="svg-inline--fa fa-pen-to-square" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 512">

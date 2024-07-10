@@ -32,7 +32,7 @@ export default function UserDetails({
                                     Full Name:
                                     <strong> {user.firstName} {user.lastName} </strong>
                                 </p>
-                                <p>Email: <strong>p{user.email}</strong></p>
+                                <p>Email: <strong>{user.email}</strong></p>
                                 <p>Phone Number: <strong>{user.phoneNumber}</strong></p>
                                 <p>
                                     Address:

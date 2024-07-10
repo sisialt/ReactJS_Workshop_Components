@@ -1,4 +1,5 @@
-export default function UserAdd({
+export default function UserEdit({
+    user,
     onClose,
     onSave,
 }) {
@@ -9,7 +10,7 @@ export default function UserAdd({
                 <div className="modal">
                     <div className="user-container">
                         <header className="headers">
-                            <h2>Add User</h2>
+                            <h2>Edit User</h2>
                             <button className="btn close" onClick={onClose}>
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark"
                                     className="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -25,14 +26,14 @@ export default function UserAdd({
                                     <label htmlFor="firstName">First name</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-user"></i></span>
-                                        <input id="firstName" name="firstName" type="text" />
+                                        <input id="firstName" name="firstName" type="text" defaultValue={user.firstName} />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="lastName">Last name</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-user"></i></span>
-                                        <input id="lastName" name="lastName" type="text" />
+                                        <input id="lastName" name="lastName" type="text" defaultValue={user.lastName} />
                                     </div>
                                 </div>
                             </div>
@@ -42,14 +43,14 @@ export default function UserAdd({
                                     <label htmlFor="email">Email</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-envelope"></i></span>
-                                        <input id="email" name="email" type="text" />
+                                        <input id="email" name="email" type="text" defaultValue={user.email} />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="phoneNumber">Phone number</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-phone"></i></span>
-                                        <input id="phoneNumber" name="phoneNumber" type="text" />
+                                        <input id="phoneNumber" name="phoneNumber" type="text" defaultValue={user.phoneNumber} />
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +59,7 @@ export default function UserAdd({
                                 <label htmlFor="imageUrl">Image Url</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-image"></i></span>
-                                    <input id="imageUrl" name="imageUrl" type="text" />
+                                    <input id="imageUrl" name="imageUrl" type="text" defaultValue={user.imageUrl} />
                                 </div>
                             </div>
 
@@ -67,14 +68,14 @@ export default function UserAdd({
                                     <label htmlFor="country">Country</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-map"></i></span>
-                                        <input id="country" name="country" type="text" />
+                                        <input id="country" name="country" type="text" defaultValue={user.address.country} />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="city">City</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-city"></i></span>
-                                        <input id="city" name="city" type="text" />
+                                        <input id="city" name="city" type="text" defaultValue={user.address.city} />
                                     </div>
                                 </div>
                             </div>
@@ -84,14 +85,14 @@ export default function UserAdd({
                                     <label htmlFor="street">Street</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-map"></i></span>
-                                        <input id="street" name="street" type="text" />
+                                        <input id="street" name="street" type="text" defaultValue={user.address.street} />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="streetNumber">Street number</label>
                                     <div className="input-wrapper">
                                         <span><i className="fa-solid fa-house-chimney"></i></span>
-                                        <input id="streetNumber" name="streetNumber" type="text" />
+                                        <input id="streetNumber" name="streetNumber" type="text" defaultValue={user.address.streetNumber} />
                                     </div>
                                 </div>
                             </div>
