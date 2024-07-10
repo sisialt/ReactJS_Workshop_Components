@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './styles.css'
+import './styles.css';
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import UserSection from "./components/user-section/UserSection.jsx";
